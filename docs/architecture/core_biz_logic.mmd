@@ -1,0 +1,13 @@
+flowchart TD
+    A[Start] --> B[Customer Submits Data/Documents]
+    B --> C[Set JobStatus: PendingReview]
+    C --> D{Data/Document Set Complete?}
+    D -- Yes --> E[Set JobStatus: Pending Submission]
+    E --> F[Submit Data/Documents]
+    F --> G[Application Result Documents Received]
+    G --> H[Set JobStatus: Application Submitted]
+    H --> I[Notify Customer: application submitted with document attached]
+    I --> J[End]
+    D --No--> K[Notify Customer: Need additional data/document]
+    K --> L[Set JobStatus: Pending Additional Data/Document]
+    L --> D
