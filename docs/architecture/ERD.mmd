@@ -1,0 +1,56 @@
+erDiagram
+    USER ||--|{USER_PROFILE: has
+    USER{
+        auto id PK
+        string email "NOT NULL"
+        string password "NULL, if googleId is not NULL"
+        string googleId "NULL, if password is not NULL"
+    }
+    USER_PROFILE{
+        auto id PK
+        auto user FK
+        string role "NOT NULL"
+    }
+    USER ||--|{JOB: "starts new/is assigned"
+    JOB{
+        auto id PK
+        auto job_type FK
+        auto customer FK
+        auto assignee FK
+        auto invoice FK
+        string status "NOT NULL"
+    }
+    JOB}|--||INVOICE: has
+    INVOICE{
+        auto id PK
+        decimal amount "NOT NULL"
+        string status "NOT NULL"
+    }
+    JOB}|--||JOB_TYPE:has
+    JOB_TYPE{
+        auto id PK
+        string name "NOT NULL"
+        string status "NOT NULL"
+    }
+    JOB_TYPE}|--|{FORM_DEFINITION:has
+    FORM_DEFINITION{
+        auto id PK
+        integer version "NOT NULL"
+        jsonb definition "NOT NULL"
+        string status "NOT NULL"
+        datetime created_at "NOT NULL"
+        auto created_by FK
+        auto job_type FK
+    }
+    USER_SUBMISSION}|--||FORM_DEFINITION:"belongs to"
+    USER_SUBMISSION{
+        auto id PK
+        auto form_id FK
+        integer version "NOT NULL"
+        auto submitted_by FK
+        jsonb data "NOT NULL"
+        datetime submitted_at "NOT NULL"
+        boolean completed
+    }
+    USER||--|{USER_SUBMISSION:submits
+    USER||--|{FORM_DEFINITION:defines
