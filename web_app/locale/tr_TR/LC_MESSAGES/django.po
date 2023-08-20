@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-20 21:46+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: web_app/templates/base.html:9
+msgid ""
+"This is a full-stack portfolio app, made for a consultancy agency that "
+"specializes in DV lottery visa consultancy. It showcases job-tracking, "
+"custom forms creation logic and customer and employee facing web application "
+"with full CRUD capabilities, email verification and multiple sign-up "
+"strategies"
+msgstr ""
+"Portfolyo amaçlı bu full-stack uygulama, ABD çeşitlilik vizesi üzerine "
+"uzmanlaşan bir danışmanlık şirketi için yapılmış olup; iş takibi, özelleşmiş "
+"form oluşturma, tam-EOGS (ekleme, okuma, güncelleme, silme) destekli, e-"
+"posta doğrulaması ve çeşitli kayıt yollarına izin veren, hem çalışana hem "
+"müşteriye dönük ağ arayüzü gibi pek çok özelliği sergilemektedir."
+
+#: web_app/templates/base.html:11
+msgid ""
+"portfolio app, full-stack, crud, visa consultancy, diversity visa, live in "
+"us, diversity lottery"
+msgstr ""
+"portfolyo uygulaması, full-stack, tam-yığın, crud, eogs, çeşitlilik vizesi, "
+"abd'de yaşa, çeşitlilik kurası"
+
+#: web_app/templates/base.html:16
+msgid "Visa Consultancy Demo"
+msgstr "Vize Danışmanlık Demosu"
+
+#: web_app/templates/base.html:40
+msgid "VISA CONSULTANCY"
+msgstr "VİZE DANIŞMANLIK"
+
+#: web_app/templates/base.html:53
+msgid "HOME"
+msgstr "Anasayfa"
+
+#: web_app/templates/base.html:62
+msgid "Language"
+msgstr "Dil"
+
+#: web_app/templates/base.html:73
+msgid "English"
+msgstr "İngilizce"
+
+#: web_app/templates/base.html:77
+msgid "Turkish"
+msgstr "Türkçe"
