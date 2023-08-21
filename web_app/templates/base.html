@@ -62,7 +62,7 @@
                                 <a class="nav-link {% if request.get_full_path == link %}active{% endif %}"
                                    href="{% url 'web:dashboard' %}">{% trans "Dashboard" %}</a>
                             </li>
-                        {% else %}
+                        {% elif user.is_authenticated and user.profile.role == 'customer' %}
                             <li class="nav-item">
                                 {% url 'web:submissions_index' as link %}
                                 <a class="nav-link {% if request.get_full_path == link %}active{% endif %}"
@@ -172,9 +172,11 @@
                 </div>
             </header>
         {% endblock header %}
+        <main class="{% block main_class %}mt-0{% endblock main_class %}">
         {% block content %}
         {% endblock content %}
-        <footer>
+        </main>
+        <footer class="footer">
             {% block footer %}
             {% endblock footer %}
         </footer>

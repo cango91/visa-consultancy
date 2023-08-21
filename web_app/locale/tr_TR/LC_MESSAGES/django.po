@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-21 03:12+0000\n"
+"POT-Creation-Date: 2023-08-21 20:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,29 +63,37 @@ msgstr "Başvurularım"
 msgid "Email"
 msgstr "E-posta"
 
-#: web_app/templates/base.html:92
+#: web_app/templates/base.html:95
 msgid "Password"
 msgstr "Şifre"
 
-#: web_app/templates/base.html:96
+#: web_app/templates/base.html:104
 msgid "Login"
 msgstr "Giriş"
 
-#: web_app/templates/base.html:98
+#: web_app/templates/base.html:106
 msgid "Signup"
 msgstr "Kaydol"
 
-#: web_app/templates/base.html:107
+#: web_app/templates/base.html:118
 msgid "Google Sign-in"
 msgstr "Google'la Gir"
 
-#: web_app/templates/base.html:118
+#: web_app/templates/base.html:129
 msgid "Account Settings"
 msgstr "Hesap Ayarları"
 
-#: web_app/templates/base.html:125
+#: web_app/templates/base.html:136
 msgid "Logout"
 msgstr "Çıkış"
+
+#: web_app/templates/home.html:13
+msgid "You too can start living abroad!"
+msgstr "Sen de yurtdışında yaşamaya başlayabilirsin!"
+
+#: web_app/templates/home.html:15
+msgid "Scroll to find out how"
+msgstr "Kaydır ve nasıl olacağını öğren"
 
 #~ msgid "HOME"
 #~ msgstr "Anasayfa"

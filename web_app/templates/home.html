@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block head %}
+    <script src="{% static 'js/frontend.js' %}"></script>
+{% endblock head %}
+{% block content %}
+    <div class="parallax-container">
+        <div class="parallax">
+            {% if not user.is_authenticated %}
+                <div class="parallax-text-container top-10p">
+                    <div class="parallax-text shadow">
+                        {% trans "You too can start living abroad!" %}
+                        <br>
+                        <div class="text-center">{% trans "Scroll to find out how" %} ⬇</div>
+                    </div>
+                </div>
+            {% endif %}
+            <img height=""
+                 width=""
+                 src="{% static 'images/traveling0.webp' %}"
+                 alt="traveling people">
+        </div>
+    </div>
+    <div class="container-sm">
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum repellat asperiores vero laudantium dignissimos velit aliquid quidem labore eligendi ullam eum itaque cum nesciunt quibusdam maiores cupiditate, veritatis fugit error!
+        </p>
+    </div>
+    <div class="parallax"></div>
+    <script>
+    parallaxElements = document.querySelectorAll('.parallax');
+    F.Parallax.init(parallaxElements);
+    </script>
+{% endblock content %}

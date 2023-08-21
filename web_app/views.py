@@ -7,7 +7,7 @@ from django.urls import reverse
 
 def home(req):
     user_locale = req.session.get('django_language')
-    return render(req,'base.html', {'lang': user_locale})
+    return render(req,'home.html', {'lang': user_locale})
 
 def set_lang(req, lang_code):
     req.session['django_language'] = lang_code

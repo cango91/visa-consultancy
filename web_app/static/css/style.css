@@ -1,0 +1,77 @@
+html{
+    height: 100%;
+}
+
+body{
+    font: 400 15px/1.8 "Lato", sans-serif;
+    background-color: antiquewhite;
+    height: 100%;
+}
+
+
+main.mt-0 {
+    margin-top: 58px !important;
+}
+
+
+
+.parallax {
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.parallax-text {
+    color: #0d3f1a;
+    font-size: 25px;
+    font-weight:700;
+    padding: 18px;
+    background-color: rgba(215, 250, 221, 0.9);
+    border-radius: 0.3rem;
+    box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+.parallax-text-container {
+    position: absolute;
+    /* top: 50%; */
+    left: 50%;
+    transform: translate(-50%, -0%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.top-10p{
+    top:10%;
+}
+
+.top-50p{
+    top:50%;
+}
+
+.top-80p{
+    top:80%;
+}
+
+.top-70p{
+    top:70%;
+}
+
+
+
+@media only screen and (max-device-width: 1366px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+}
+
+
+@media screen and (max-width: 270.99px) {
+    main.mt-0 {
+        margin-top: 98px !important;
+    }
+}
