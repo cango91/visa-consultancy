@@ -86,14 +86,22 @@
                                                     {% csrf_token %}
                                                     <div>
                                                         <label for="login">{% trans "Email" %}:</label>
-                                                        <input type="email" name="login">
+                                                        <input autocomplete="email"
+                                                               class="form-control form-control-sm"
+                                                               type="email"
+                                                               name="login">
                                                     </div>
                                                     <div>
                                                         <label for="password">{% trans "Password" %}:</label>
-                                                        <input class="form-control form-control-sm" type="password" name="password">
+                                                        <input autocomplete="current-password"
+                                                               class="form-control form-control-sm"
+                                                               type="password"
+                                                               name="password">
                                                     </div>
                                                     <div class="d-flex justify-content-between">
-                                                        <input class="btn btn-flat text-white" type="submit" value='{% trans "Login" %}'>
+                                                        <input class="btn btn-flat text-white"
+                                                               type="submit"
+                                                               value='{% trans "Login" %}'>
                                                         <a class="btn btn-flat text-white align-middle"
                                                            href="{% url 'account_signup' %}">{% trans "Signup" %}</a>
                                                     </div>
@@ -103,7 +111,10 @@
                                                     <div class="row d-flex justify-content-middle">
                                                         <button class="btn btn-sm btn-outline-secondary mx-auto flex-fill"
                                                                 type="submit">
-                                                            <img src="{% static 'images/google_logo.svg' %}" alt="google logo">
+                                                            <img width=""
+                                                                 height=""
+                                                                 src="{% static 'images/google_logo.svg' %}"
+                                                                 alt="google logo">
                                                             {% trans "Google Sign-in" %}
                                                         </button>
                                                     </div>
@@ -112,14 +123,14 @@
                                         </div>
                                     </li>
                                 {% else %}
-                                    <li class="nav-item">
+                                    <li class="nav-item d-flex flex-column align-content-stretch">
                                         {% url 'web:profile' as link %}
-                                        <a class="nav-link {% if request.get_full_path == link %}active{% endif %}"
+                                        <a class="nav-link btn btn-flat {% if request.get_full_path == link %}active{% endif %}"
                                            href="{% url 'account_login' %}">{% trans "Account Settings" %}</a>
                                     </li>
                                     <form method="post" action="{% url 'account_logout' %}">
                                         {% csrf_token %}
-                                        <li class="nav-item">
+                                        <li class="nav-item d-flex flex-column align-content-stretch">
                                             <input class="nav-link btn btn-flat"
                                                    type="submit"
                                                    value="{% trans "Logout" %}">
