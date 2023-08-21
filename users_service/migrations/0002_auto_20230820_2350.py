@@ -6,7 +6,9 @@ from .. import conf
 
 
 def create_google_social_app(apps, schema_editor):
-    
+    """Create the Google social app for allauth
+    users_service is tightly coupled to allauth
+    """
     client_id = conf.GOOGLE_CLIENT_ID
     secret_key = conf.GOOGLE_SECRET_KEY
     

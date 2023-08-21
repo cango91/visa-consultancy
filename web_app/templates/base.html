@@ -54,6 +54,19 @@
                             <a class="nav-link {% if request.get_full_path == link %}active{% endif %}"
                                href="{% url 'web:home' %}">{% trans "HOME" %}</a>
                         </li>
+                        {% if not user.is_authenticated %}
+                        <li class="nav-item">
+                            {% url 'web:signup' as link %}
+                            <a class="nav-link {% if request.get_full_path == link %}active{% endif %}"
+                               href="{% url 'account_login' %}">{% trans "LOGIN" %}</a>
+                        </li>
+                        {% elif user.profile.role == '' %}
+                        <li class="nav-item">
+                            {% url 'web:profile' as link %}
+                            <a class="nav-link {% if request.get_full_path == link %}active{% endif %}"
+                               href="{% url 'account_login' %}">{% trans "LOGIN" %}</a>
+                        </li>
+                        {% endif %}
                         <li class="nav-item dropdown ">
                             <a class="nav-link dropdown-toggle"
                                href="#"
