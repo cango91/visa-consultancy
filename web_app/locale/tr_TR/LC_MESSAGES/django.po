@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-20 21:46+0000\n"
+"POT-Creation-Date: 2023-08-21 03:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,22 +43,58 @@ msgstr ""
 msgid "Visa Consultancy Demo"
 msgstr "Vize Danışmanlık Demosu"
 
-#: web_app/templates/base.html:40
+#: web_app/templates/base.html:42
 msgid "VISA CONSULTANCY"
 msgstr "VİZE DANIŞMANLIK"
 
-#: web_app/templates/base.html:53
-msgid "HOME"
-msgstr "Anasayfa"
+#: web_app/templates/base.html:57
+msgid "Home"
+msgstr "Ana Sayfa"
 
-#: web_app/templates/base.html:62
-msgid "Language"
-msgstr "Dil"
+#: web_app/templates/base.html:63
+msgid "Dashboard"
+msgstr "Ana Panel"
 
-#: web_app/templates/base.html:73
-msgid "English"
-msgstr "İngilizce"
+#: web_app/templates/base.html:69
+msgid "My Submissions"
+msgstr "Başvurularım"
 
-#: web_app/templates/base.html:77
-msgid "Turkish"
-msgstr "Türkçe"
+#: web_app/templates/base.html:88
+msgid "Email"
+msgstr "E-posta"
+
+#: web_app/templates/base.html:92
+msgid "Password"
+msgstr "Şifre"
+
+#: web_app/templates/base.html:96
+msgid "Login"
+msgstr "Giriş"
+
+#: web_app/templates/base.html:98
+msgid "Signup"
+msgstr "Kaydol"
+
+#: web_app/templates/base.html:107
+msgid "Google Sign-in"
+msgstr "Google'la Gir"
+
+#: web_app/templates/base.html:118
+msgid "Account Settings"
+msgstr "Hesap Ayarları"
+
+#: web_app/templates/base.html:125
+msgid "Logout"
+msgstr "Çıkış"
+
+#~ msgid "HOME"
+#~ msgstr "Anasayfa"
+
+#~ msgid "Language"
+#~ msgstr "Dil"
+
+#~ msgid "English"
+#~ msgstr "İngilizce"
+
+#~ msgid "Turkish"
+#~ msgstr "Türkçe"

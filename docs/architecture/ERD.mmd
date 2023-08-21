@@ -37,6 +37,7 @@ erDiagram
         auto id PK
         integer version "NOT NULL"
         jsonb definition "NOT NULL"
+        jsonb translations "NOT NULL"
         string status "NOT NULL"
         datetime created_at "NOT NULL"
         auto created_by FK

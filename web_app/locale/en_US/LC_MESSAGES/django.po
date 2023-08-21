@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-20 21:46+0000\n"
+"POT-Creation-Date: 2023-08-21 03:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,22 +43,58 @@ msgstr ""
 msgid "Visa Consultancy Demo"
 msgstr "Visa Consultancy Demo"
 
-#: web_app/templates/base.html:40
+#: web_app/templates/base.html:42
 msgid "VISA CONSULTANCY"
 msgstr "VISA CONSULTANCY"
 
-#: web_app/templates/base.html:53
-msgid "HOME"
-msgstr "HOME"
+#: web_app/templates/base.html:57
+msgid "Home"
+msgstr "Home"
 
-#: web_app/templates/base.html:62
-msgid "Language"
-msgstr "Language"
+#: web_app/templates/base.html:63
+msgid "Dashboard"
+msgstr "Dashboard"
 
-#: web_app/templates/base.html:73
-msgid "English"
-msgstr "English"
+#: web_app/templates/base.html:69
+msgid "My Submissions"
+msgstr "My Submissions"
 
-#: web_app/templates/base.html:77
-msgid "Turkish"
-msgstr "Turkish"
+#: web_app/templates/base.html:88
+msgid "Email"
+msgstr "Email"
+
+#: web_app/templates/base.html:92
+msgid "Password"
+msgstr "Password"
+
+#: web_app/templates/base.html:96
+msgid "Login"
+msgstr "Login"
+
+#: web_app/templates/base.html:98
+msgid "Signup"
+msgstr "Signup"
+
+#: web_app/templates/base.html:107
+msgid "Google Sign-in"
+msgstr "Google Sign-in"
+
+#: web_app/templates/base.html:118
+msgid "Account Settings"
+msgstr "Account Settings"
+
+#: web_app/templates/base.html:125
+msgid "Logout"
+msgstr "Logout"
+
+#~ msgid "HOME"
+#~ msgstr "HOME"
+
+#~ msgid "Language"
+#~ msgstr "Language"
+
+#~ msgid "English"
+#~ msgstr "English"
+
+#~ msgid "Turkish"
+#~ msgstr "Turkish"
