@@ -39,7 +39,7 @@
     <body>
         {% block header %}
             <header class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                <a class="navbar-brand px-2 h1 m-1" href="#!">{% trans "VISA CONSULTANCY" %}</a>
+                <a class="navbar-brand px-2 h1 m-1" href="{% url 'web:home' %}">{% trans "VISA CONSULTANCY" %}</a>
                 <button class="navbar-toggler"
                         type="button"
                         data-bs-toggle="collapse"
@@ -126,7 +126,7 @@
                                     <li class="nav-item d-flex flex-column align-content-stretch">
                                         {% url 'web:profile' as link %}
                                         <a class="nav-link btn btn-flat {% if request.get_full_path == link %}active{% endif %}"
-                                           href="{% url 'account_login' %}">{% trans "Account Settings" %}</a>
+                                           href="{% url 'web:profile' %}">{% trans "Account Settings" %}</a>
                                     </li>
                                     <form method="post" action="{% url 'account_logout' %}">
                                         {% csrf_token %}
@@ -176,8 +176,9 @@
         {% block content %}
         {% endblock content %}
         </main>
-        <footer class="footer">
+        <footer class="{% block footer_class %}bg-dark text-white bottom-0 w-100 d-flex{% endblock footer_class %}">
             {% block footer %}
+            2023
             {% endblock footer %}
         </footer>
     </body>

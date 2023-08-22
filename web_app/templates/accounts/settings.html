@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load account %}
+{% load socialaccount %}
+{% block main_class %}h-100 d-flex flex-column justify-content-center align-items-center{% endblock main_class %}
+{% block content %}
+<div class="container">
+    <div class="card" id="profile" >
+      <div class="card-header text-center">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="true" data-toggle="#account-settings" href="#!">Account Settings</a>
+          </li>
+          {% if user.profile.role == 'customer' %}
+          <li class="nav-item">
+            <a class="nav-link" href="#!" data-toggle="#billing-information">Billing Information</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="#!" data-toggle="#jobs">Jobs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#!" data-toggle="#statistics">Statistics</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+      <div class="card-body">
+        <div id="account-settings" class="tab-content">
+ACCOUNT SETTINGS
+        </div>
+        {% if user.profile.role == 'customer' %}
+        <div id="billing-information" class="d-none tab-content">
+
+        </div>
+        {% else %}
+        <div id="jobs" class="d-none tab-content">
+JOBS
+        </div>
+        <div id="statistics" class="d-none tab-content">
+STATS
+        </div>
+        {% endif %}
+      </div>
+    </div>
+</div>
+<script>
+  const card = document.getElementById('profile');
+  const togglers = Array.from(document.querySelectorAll('[data-toggle]'));
+  const tabs = Array.from(document.querySelectorAll('.tab-content'));
+  card.addEventListener('click', (evt)=>{
+    if(!!! evt.target.dataset.toggle) return;
+    //∂const elem = document.getElementById(evt.target.dataset.toggle);
+    //elem.classList.remove('d-none');
+    tabs.forEach(t => t.id !== evt.target.dataset.toggle.substring(1) ? t.classList.add('d-none') : t.classList.remove('d-none'))
+    togglers.forEach(t => t !== evt.target ? t.classList.remove('active') : t.classList.add('active'));
+    //evt.target.classList.add('active');
+  });
+</script>
+  {% comment %} <div class="row bg-color">
+    <div class="col-4"></div>
+    <div class="col-8">
+      <div class="container">
+        <div class="scrollable-options">
+          <h1>Profile</h1>
+          <section id="account-settings">
+            <h2 class="mt-2">Account Settings</h2>
+            <hr>
+            {% if user.has_usable_password %}
+              <h3 id="change-password">Change Password</h3>
+              <form action="{% url 'account_change_password' %}" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label for="old_password" class="form-label">Old Password</label>
+                  <input type="password"
+                         class="form-control"
+                         id="old_password"
+                         name="old_password"
+                         required>
+                </div>
+                <div class="mb-3">
+                  <label for="new_password1" class="form-label">New Password</label>
+                  <input type="password"
+                         class="form-control"
+                         id="new_password1"
+                         name="new_password1"
+                         required>
+                </div>
+                <div class="mb-3">
+                  <label for="new_password2" class="form-label">Confirm New Password</label>
+                  <input type="password"
+                         class="form-control"
+                         id="new_password2"
+                         name="new_password2"
+                         required>
+                </div>
+                <button type="submit" class="btn btn-primary">Change Password</button>
+              </form>
+            {% elif user.socialaccount_set.all|length > 0 %}
+              <h3 id="set-password">Set Password</h3>
+              <form action="{% url 'account_set_password' %}" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label for="password1" class="form-label">New Password</label>
+                  <input type="password"
+                         class="form-control"
+                         id="password1"
+                         name="password1"
+                         required>
+                </div>
+                <div class="mb-3">
+                  <label for="password2" class="form-label">Confirm New Password</label>
+                  <input type="password"
+                         class="form-control"
+                         id="password2"
+                         name="password2"
+                         required>
+                </div>
+                <button type="submit" class="btn btn-primary">Set Password</button>
+              </form>
+            {% endif %}
+            <h3 class="mt-2" id="google-account">Google Account</h3>
+            {% if user.socialaccount_set.all|length == 0 %}
+              <a href="{% provider_login_url 'google' %}?process=connect">Connect with Google</a>
+            {% endif %}
+          </section>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum saepe dolores iusto, error ea numquam fuga totam eveniet inventore ab voluptatum non cupiditate sit hic rem. Nihil, fugit quia.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum saepe dolores iusto, error ea numquam fuga totam eveniet inventore ab voluptatum non cupiditate sit hic rem. Nihil, fugit quia.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum saepe dolores iusto, error ea numquam fuga totam eveniet inventore ab voluptatum non cupiditate sit hic rem. Nihil, fugit quia.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum saepe dolores iusto, error ea numquam fuga totam eveniet inventore ab voluptatum non cupiditate sit hic rem. Nihil, fugit quia.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum saepe dolores iusto, error ea numquam fuga totam eveniet inventore ab voluptatum non cupiditate sit hic rem. Nihil, fugit quia.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum saepe dolores iusto, error ea numquam fuga totam eveniet inventore ab voluptatum non cupiditate sit hic rem. Nihil, fugit quia.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum saepe dolores iusto, error ea numquam fuga totam eveniet inventore ab voluptatum non cupiditate sit hic rem. Nihil, fugit quia.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum saepe dolores iusto, error ea numquam fuga totam eveniet inventore ab voluptatum non cupiditate sit hic rem. Nihil, fugit quia.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum saepe dolores iusto, error ea numquam fuga totam eveniet inventore ab voluptatum non cupiditate sit hic rem. Nihil, fugit quia.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum saepe dolores iusto, error ea numquam fuga totam eveniet inventore ab voluptatum non cupiditate sit hic rem. Nihil, fugit quia.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum saepe dolores iusto, error ea numquam fuga totam eveniet inventore ab voluptatum non cupiditate sit hic rem. Nihil, fugit quia.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum saepe dolores iusto, error ea numquam fuga totam eveniet inventore ab voluptatum non cupiditate sit hic rem. Nihil, fugit quia.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita laborum saepe dolores iusto, error ea numquam fuga totam eveniet inventore ab voluptatum non cupiditate sit hic rem. Nihil, fugit quia.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div> {% endcomment %}
+
+{% endblock content %}
+{% block footer_class %}bg-dark text-white w-100 position-fixed bottom-0{% endblock footer_class %}

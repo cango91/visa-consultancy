@@ -7,19 +7,19 @@
 {% block content %}
     <div class="parallax-container">
         <div class="parallax">
-            {% if not user.is_authenticated %}
-                <div class="parallax-text-container top-50p">
-                    <div class="parallax-text shadow">
-                        {% trans "You too can start living abroad!" %}
+            {% comment %} {% if not user.is_authenticated %}
+                <div class="parallax-text-container">
+                    <div class="parallax-text shadow text-center">
+                        {% trans "You too can live in U.S.A!" %}
                         <br>
                         <div class="text-center">{% trans "Scroll to find out how" %} ⬇</div>
                     </div>
                 </div>
-            {% endif %}
+            {% endif %} {% endcomment %}
             <img height=""
                  width=""
-                 src="{% static 'images/traveling0.webp' %}"
-                 alt="{% trans "people in San Francisco" %}">
+                 src="{% static 'images/lady_liberty.webp' %}"
+                 alt="{% trans "ink on paper sketch of Lady Liberty on a wooden surface" %}">
         </div>
     </div>
     <div class="container-sm">

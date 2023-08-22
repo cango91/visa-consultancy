@@ -1,16 +1,27 @@
+:root{
+    --bg-color: #faebd7;
+}
 html{
     height: 100%;
 }
 
+.bg-color{
+    background-color: var(--bg-color);
+}
+
 body{
     font: 400 15px/1.8 "Lato", sans-serif;
-    background-color: antiquewhite;
+    background-color: var(--bg-color);
     height: 100%;
 }
 
 
 main.mt-0 {
     margin-top: 58px !important;
+}
+
+main.mt-1 {
+    margin-top: calc(58px + 0.25rem) !important;
 }
 
 
@@ -24,7 +35,7 @@ main.mt-0 {
     position: relative;
 }
 
-.parallax-text {
+/* .parallax-text {
     color: #0d3f1a;
     font-size: 25px;
     font-weight:700;
@@ -36,14 +47,14 @@ main.mt-0 {
 
 .parallax-text-container {
     position: absolute;
-    /* top: 50%; */
     left: 50%;
     transform: translate(-50%, -0%);
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center; 
-}
+} */
+
 
 .top-10p{
     top:10%;
@@ -61,7 +72,22 @@ main.mt-0 {
     top:70%;
 }
 
+.scrollable-options{
+    height: 650px;
+    overflow-y: scroll;
+    border-color: #D7E6FA;
+}
 
+.weird-main{
+    padding-top: 58px;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto !important;
+}
+
+.weird-footer{
+    width: 100%;
+}
 
 @media only screen and (max-device-width: 1366px) {
     .parallax {
@@ -70,8 +96,11 @@ main.mt-0 {
 }
 
 
-@media screen and (max-width: 270.99px) {
+@media screen and (max-width: 290.99px) {
     main.mt-0 {
         margin-top: 98px !important;
+    }
+    main.mt-1 {
+        margin-top: calc(98px + 0.25rem) !important;
     }
 }

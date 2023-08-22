@@ -6,8 +6,7 @@ from django.urls import reverse
 # Create your views here.
 
 def home(req):
-    user_locale = req.session.get('django_language')
-    return render(req,'home.html', {'lang': user_locale})
+    return render(req,'home.html')
 
 def set_lang(req, lang_code):
     req.session['django_language'] = lang_code
@@ -15,7 +14,7 @@ def set_lang(req, lang_code):
 
 @login_required
 def profile(req):
-    return redirect(reverse('web:home'))
+    return render(req, 'accounts/settings.html')
 
 @login_required
 def dashboard(req):
