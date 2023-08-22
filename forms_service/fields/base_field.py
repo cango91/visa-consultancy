@@ -41,6 +41,15 @@ class BaseField(ABC):
             "enabled": self.enabled,
             "validations": [validation.serialize() for validation in self.validations]
         }
+        
+    @staticmethod
+    @abstractmethod
+    def deserialize(json_data):
+        """
+        Deserializes the given JSON data into a field object.
+        Must be implemented by the concrete field classes.
+        """
+        pass
 
 
 class FieldValidationError(Exception):

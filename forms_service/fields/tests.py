@@ -22,4 +22,17 @@ class TextFieldTests(TestCase):
         self.assertTrue(serialized['enabled']==True)
         self.assertTrue(isinstance(serialized['validations'],list))
         self.assertTrue(serialized['type']=='text')
-        
+    
+    def test_deserialization(self):
+        serialized_field = {
+            'label': 'Your name', 
+            'enabled': True, 
+            'validations': [
+                {'validator': 'MaxLengthValidator', 'arguments': [128]}, 
+                {'validator': 'MinLengthValidator', 'arguments': [3]}
+                ],
+            'type': 'text'
+            }
+        field = TextField.deserialize(serialized_field)
+        self.assertIsNotNone(field)
+        self.assertEqual(field.serialize(),serialized_field)
