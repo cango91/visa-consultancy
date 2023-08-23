@@ -10,6 +10,9 @@ class SelectField(BaseField):
             self.add_validation(StringEnumValidator([option["value"] for option in self.options]))
         
     def validate_field(self):
+        """
+        Validates the options passed in constructor. It must be a list of dictionaries. Every item in the dictionary must have label and value strings. Optionally they may have an enables string.
+        """
         super().validate_field()
         if not isinstance(self.options, list) or not all(isinstance(option, dict) for option in self.options):
             raise ValueError("Options must be a list of dictionaries.")
@@ -44,7 +47,10 @@ class SelectField(BaseField):
         return base_data
     
     @staticmethod
-    def deserialize(json_data):
+    def deserialize(json_data, create_implicit_validator = False):
+        """
+        When deserializing from client submitted definition, pass True to create_implicit_validator flag. This ensures that an implicit validator is saved in the database instance. When deserializing db retrieved definition, be sure to keep it False so as not to add multiple instances.
+        """
         return SelectField(
             label=json_data['label'],
             enabled=json_data['enabled'],
@@ -56,5 +62,5 @@ class SelectField(BaseField):
                 for option in json_data['options']
                 ],
             validations=[ValidatorFactory.create_validator(v) for v in json_data['validations']],
-            create_implicit_validator=False
+            create_implicit_validator = create_implicit_validator
         )
