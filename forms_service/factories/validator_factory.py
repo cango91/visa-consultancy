@@ -1,4 +1,4 @@
-from forms_service.validators.validators import MinLengthValidator, MaxLengthValidator
+from forms_service.validators.validators import EnumValidator, MinLengthValidator, MaxLengthValidator, StringEnumValidator
 
 class ValidatorFactory:
     @staticmethod
@@ -10,6 +10,8 @@ class ValidatorFactory:
         validator_classes = {
             'MinLengthValidator': MinLengthValidator,
             'MaxLengthValidator': MaxLengthValidator,
+            'EnumValidator': EnumValidator,
+            'StringEnumValidator': StringEnumValidator,
             # Add other concrete validator classes here
         }
 
