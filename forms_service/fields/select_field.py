@@ -33,7 +33,7 @@ class SelectField(BaseField):
         
     def serialize(self):
         """
-        Serializes the text field into a JSON-compatible format.
+        Serializes the select field into a JSON-compatible format.
         """
         base_data = super().serialize()
         base_data.update({"type": "select",
