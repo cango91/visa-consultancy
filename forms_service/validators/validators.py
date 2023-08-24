@@ -1,3 +1,4 @@
+import re
 from forms_service.validators.constraints.single_type_list import SingleTypeListConstraint
 from .base_validator import BaseValidator
 from .constraints.min_value import MinValueConstraint
@@ -48,11 +49,13 @@ class MaxLengthValidator(BaseValidator):
         
 class EnumValidator(BaseValidator):
     def __init__(self, enums):
+        if not enums or not len(enums):
+            raise ValueError('enums must be provided')
         self.enums = enums
         super().__init__(enums)
         
     def get_expected_args(self):
-        return [(list,)]
+        return [(list,[])]
     
     def serialize(self):
         base_data = super().serialize()
@@ -68,3 +71,10 @@ class EnumValidator(BaseValidator):
 class StringEnumValidator(EnumValidator):
      def get_expected_args(self):
         return [(list,[SingleTypeListConstraint(str)])]
+    
+class RequiredValidator(BaseValidator):
+    def validate(self, value):
+        if value is None or (isinstance(value, str) and not re.sub(r'\s','',value)):
+            raise ValidationError(f"Value is required, got {value}")
+    def get_expected_args(self):
+        return []

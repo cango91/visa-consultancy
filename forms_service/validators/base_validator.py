@@ -11,6 +11,7 @@ class BaseValidator(ABC):
         """
         Returns a list of tuples defining the expected arguments for this validator.
         Each tuple should contain the type and any additional constraints as an array.
+        If no constraints are necessary, an empty array should be passed as second element of tuple
         Must be implemented by the concrete validator classes.
         """
         pass

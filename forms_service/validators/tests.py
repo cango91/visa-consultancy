@@ -2,7 +2,7 @@
 from django.test import TestCase
 from forms_service.validators.base_validator import ArgumentValidationError, BaseValidator
 from forms_service.validators.constraints.min_value import MinValueConstraint
-from forms_service.validators.validators import MinLengthValidator, MaxLengthValidator,ValidationError
+from forms_service.validators.validators import EnumValidator, MinLengthValidator, MaxLengthValidator, RequiredValidator,ValidationError
 
 
 class ConcreteValidator(BaseValidator):
@@ -62,3 +62,50 @@ class TestLengthValidators(TestCase):
         self.assertTrue(serialized_max['arguments']==[5])
         self.assertTrue(serialized_min['validator'] == 'MinLengthValidator')
         self.assertTrue(serialized_max['validator'] == 'MaxLengthValidator')
+        
+## RequiredValidator Tests ##
+class TestRequiredValidator(TestCase):
+    def test_raises_on_empty_value(self):
+        with self.assertRaises(ValidationError):
+            RequiredValidator().validate("")
+            
+    def test_raises_on_whitespace(self):
+        with self.assertRaises(ValidationError):
+            RequiredValidator().validate("    ")
+            
+    def test_raises_on_linebreaks(self):
+        with self.assertRaises(ValidationError):
+            RequiredValidator().validate("""
+                                         """)
+    def test_raises_on_none(self):
+        with self.assertRaises(ValidationError):
+            RequiredValidator().validate(None)
+            
+    def test_passes_non_empty_string(self):
+        self.assertIsNone(RequiredValidator().validate("non-empty"))
+        
+    def test_passes_number_zero(self):
+        self.assertIsNone(RequiredValidator().validate(0))
+        
+            
+    def test_passes_bool_false(self):
+        self.assertIsNone(RequiredValidator().validate(False))
+        
+## EnumValidator Tests ##
+class TestEnumValidator(TestCase):
+    def test_init_with_list(self):
+        self.assertIsNotNone(EnumValidator(["first",2,'third']))
+        
+    def test_init_with_empty_list(self):
+        with self.assertRaises(ValueError):
+            EnumValidator([])
+            
+    def test_value_in_enum_passes_test(self):
+        self.assertIsNone(EnumValidator([1,2,3]).validate(1))
+        self.assertIsNone(EnumValidator(["a","b"]).validate("b"))
+        
+    def test_value_outside_enum_fails_test(self):
+        with self.assertRaises(ValidationError):
+            EnumValidator([1,2,3]).validate(4)
+        with self.assertRaises(ValidationError):
+            EnumValidator([1,2,3]).validate("1")
