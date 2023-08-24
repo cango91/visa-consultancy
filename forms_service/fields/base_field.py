@@ -2,10 +2,11 @@ from abc import ABC, abstractmethod
 
 
 class BaseField(ABC):
-    def __init__(self, label, enabled=True, validations=None):
+    def __init__(self, label, enabled=True, validations=None,help_info=None):
         self.label = label
         self.enabled = enabled
         self.validations = validations or []
+        self.help_info = help_info
         self.validate_field()
 
     @abstractmethod
@@ -36,11 +37,14 @@ class BaseField(ABC):
         """
         Serializes the field into a JSON-compatible format.
         """
-        return {
+        serialized = {
             "label": self.label,
             "enabled": self.enabled,
             "validations": [validation.serialize() for validation in self.validations]
         }
+        if self.help_info:
+            serialized.update({"help_info":self.help_info})
+        return serialized
         
     @staticmethod
     @abstractmethod

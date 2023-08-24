@@ -4,6 +4,8 @@ from django.contrib.auth import get_user_model
 
 # Create your models here.
 class FormDefinition(models.Model):
+    name = models.CharField(max_length=50,null=True,blank=True)
+    description = models.CharField(max_length=500,null=True,blank=True)
     version = models.IntegerField("Form Version")
     definition = models.JSONField("Form Definition")
     translations = models.JSONField()
