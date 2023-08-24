@@ -54,4 +54,4 @@ class UserProfile(models.Model):
         ('employee','Employee'),
         ('customer','Customer'),
     )
-    role = models.CharField(max_length=12,choices=USER_ROLES)
+    role = models.CharField(max_length=12,choices=USER_ROLES,default='customer')

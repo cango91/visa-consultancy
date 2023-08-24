@@ -5,8 +5,8 @@ from django.db import models
 class Payment(models.Model):
     job = models.ForeignKey('Job',on_delete=models.PROTECT)
     invoice = models.ForeignKey('Invoice',on_delete=models.PROTECT)
-    PAYMENT_METHODS = (('cco','Online Credit/Debit Card'),
-                       ('dep','Direct Deposit to Account'))
+    PAYMENT_METHODS = (('online_card','Online Credit/Debit Card'),
+                       ('direct_deposit','Direct Deposit to Account'))
     method = models.CharField(max_length=25,choices=PAYMENT_METHODS)
     transaction_id = models.CharField(max_length=255)
     PAYMENT_STATUS = (('complete','Paid in Full'),
