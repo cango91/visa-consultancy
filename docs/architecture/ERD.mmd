@@ -1,5 +1,5 @@
 erDiagram
-    USER ||--|{USER_PROFILE: has
+ USER ||--|{USER_PROFILE: has
     USER{
         auto id PK
         string email "NOT NULL"
@@ -19,11 +19,21 @@ erDiagram
         auto assignee FK
         auto invoice FK
         string status "NOT NULL"
+        string unique_id "NOT NULL"
     }
     JOB}|--||INVOICE: has
     INVOICE{
         auto id PK
         decimal amount "NOT NULL"
+        string status "NOT NULL"
+    }
+    JOB}|--||PAYMENT: has
+    PAYMENT{
+        auto id PK
+        auto job FK
+        auto invoice FK
+        string method "NOT NULL"
+        string transaction_id "NULL"
         string status "NOT NULL"
     }
     JOB}|--||JOB_TYPE:has
@@ -38,6 +48,7 @@ erDiagram
         integer version "NOT NULL"
         jsonb definition "NOT NULL"
         jsonb translations "NOT NULL"
+        string default_lang_code "NOT NULL"
         string status "NOT NULL"
         datetime created_at "NOT NULL"
         auto created_by FK
