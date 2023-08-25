@@ -5,6 +5,7 @@ from django.db import models
 from .validators.tests import *
 from .fields.tests import *
 from .factories.tests import *
+from .wizard.tests import *
 
 class FormDefinitionTestCase(TestCase):
     

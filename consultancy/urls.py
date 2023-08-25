@@ -22,4 +22,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('accounts/',include('email_verify.urls')),
     path('', include('web_app.urls')),
+    path('forms/wizard/',include('forms_service.wizard.urls'))
 ]
