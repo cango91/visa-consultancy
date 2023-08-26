@@ -25,6 +25,7 @@ const initialState = {
   pendingAction: null,
   setPendingAction:null,
   showNewFormMetadata:false,
+  showLoadForm:false,
   diff:false,
 };
 
@@ -35,13 +36,16 @@ const formWizardReducer = (state = initialState, action) => {
     case 'TOGGLE_EDITING':
       return { ...state, isEditing: !state.isEditing };
     case 'LOAD_FORM':
-      return { ...state, currentForm: action.payload, isEditing: true };
+      if(diff){
+        return { ...state, showChangesPopup: true, setPendingAction: 'LOAD_FORM', diff:true};
+      }
+      return { ...state, showLoadForm:true, pendingAction:null, diff:false,showNewFormMetadata:false};
     case 'NEW_FORM':
-      if (state.currentForm.formDefinition && !deepEquals(state.currentForm.formDefinition, state.cachedForm.formDefinition)) {
+      if (diff) {
         // there are changes on the current form. Ask to save or discard them with a pop up using reactjs-popup. Save and discard should both have eventhandlers with state logic, therefore we'll set pendingAction and useEffect within the provider body
         return { ...state, showChangesPopup: true, setPendingAction: 'NEW_FORM', diff:true};
       }
-      return { ...state, showNewFormMetadata: true, pendingAction: null,diff:false};
+      return { ...state, showNewFormMetadata: true, pendingAction: null,diff:false, showLoadForm:false};
     case 'EDIT_NEW_FORM':
       return {...state, currentForm: {version:1,formDefinition:action.payload}, cachedForm: {...initialState.cachedForm}, isEditing:true, showNewFormMetadata:false, diff:true}
     case 'UPDATE_FORM':
@@ -61,7 +65,7 @@ const formWizardReducer = (state = initialState, action) => {
     case 'DISCARD_CHANGES':
       return {...state, cachedForm: {...initialState.cachedForm}, currentForm: {...initialState.currentForm}, pendingAction: pendingAction, setPendingAction: null, showChangesPopup:false, diff:false};
     case 'CANCEL_ACTION':
-    return {...state,showChangesPopup:false,pendingAction:null,setPendingAction:null,diff:diff}
+    return {...state,showChangesPopup:false,pendingAction:null,setPendingAction:null, diff:diff}
     default:
       return state;
   }
@@ -73,10 +77,10 @@ export const FormWizardProvider = ({ children }) => {
     if(state.pendingAction){
       dispatch({type: state.pendingAction});
     }
-    const handleBeforeUnload = (event) => {
+    const handleBeforeUnload = (e) => {
       if (state.diff) {
-        event.preventDefault();
-        event.returnValue = 'You have unsaved changes. Do you really want to leave?';
+        e.preventDefault();
+        e.returnValue = 'You have unsaved changes. Do you really want to leave?';
       }
     };
     window.addEventListener('beforeunload', handleBeforeUnload);
@@ -98,6 +102,7 @@ export default function App() {
   return (
     <div className="App">
       <FormWizardProvider>
+        <hr />
         <TopBarComponent />
         <ContentAreaComponent />
       </FormWizardProvider>

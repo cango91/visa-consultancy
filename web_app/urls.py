@@ -9,4 +9,5 @@ urlpatterns = [
     path('accounts/profile',views.profile,name="profile"),
     path('dashboard/',views.dashboard,name="dashboard"),
     path('submissions/',views.submissions_index,name="submissions_index"),
+    path('forms/wizard',views.wizard,name="wizard")
 ]

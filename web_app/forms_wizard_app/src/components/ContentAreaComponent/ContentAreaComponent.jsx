@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { FormWizardContext } from "../../App"
 import NewFormMetadataComponent from "../NewFormMetadataComponent/NewFormMetadataComponent";
+import LoadFormComponent from "../LoadFormComponent/LoadFormComponent";
 
 export default function ContentAreaComponent() {
     const { state, dispatch } = useContext(FormWizardContext);
@@ -21,10 +22,22 @@ export default function ContentAreaComponent() {
         dispatch({ type: "EDIT_NEW_FORM", payload: formDefinition });
     };
 
+    const handleLoadForm = (formData) =>{
+        
+    }
+
     if (state.showNewFormMetadata) {
-        return (<div className="container-fluid"> 
-        <NewFormMetadataComponent handle={handleNewForm} />
-        </div>);
+        return (
+            <div className="container-fluid">
+                <NewFormMetadataComponent handle={handleNewForm} />
+            </div>);
+    }
+    if (state.showLoadForm) {
+        return (
+            <div className="container-fluid">
+                <LoadFormComponent handle={handleLoadForm} />
+            </div>
+            );
     }
     return <div>Content Area</div>
 }

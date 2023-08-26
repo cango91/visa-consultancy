@@ -62,6 +62,11 @@
                                 <a class="nav-link {% if request.get_full_path == link %}active{% endif %}"
                                    href="{% url 'web:dashboard' %}">{% trans "Dashboard" %}</a>
                             </li>
+                            <li class="nav-item">
+                                {% url 'web:wizard' as link %}
+                                <a class="nav-link {% if request.get_full_path == link %}active{% endif %}"
+                                   href="{% url 'web:wizard' %}">{% trans "Forms Wizard" %}</a>
+                            </li>
                         {% elif user.is_authenticated and user.profile.role == 'customer' %}
                             <li class="nav-item">
                                 {% url 'web:submissions_index' as link %}

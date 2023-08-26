@@ -23,3 +23,6 @@ def dashboard(req):
 @login_required
 def submissions_index(req):
     return redirect(reverse('web:home'))
+
+def wizard(req):
+    return render(req,'wizard.html')
