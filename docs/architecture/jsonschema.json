@@ -18,9 +18,11 @@
             "order": {"type": "integer"},
             "fields": {
               "type": "array",
+              "minItems":1,
               "items": {
                 "type": "object",
                 "properties": {
+                  "type": {"type": "string"},
                   "label": {"type": "string"},
                   "order": {"type": "integer"},
                   "section": {"type": "string"},
@@ -51,9 +53,18 @@
                   }
                 },
                 "required": ["label", "order", "enabled", "validations"],
-                "oneOf": [
-                  {"required": ["label", "order", "enabled", "validations"]},
-                  {"required": ["label", "order", "enabled", "validations", "options"]}
+                "allOf": [
+                  {
+                    "if": {"properties": {"type": {"const": "select"}}},
+                    "then": {
+                        "required": ["options"],
+                        "properties": {
+                            "options":{
+                                "minItems":1
+                            }
+                        }
+                    }
+                  }
                 ]
               }
             }
