@@ -2,3 +2,4 @@
 .prod-venv
 assets/
 assets/*.*
+.sqlite3

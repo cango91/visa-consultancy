@@ -2,11 +2,13 @@ from abc import ABC, abstractmethod
 
 
 class BaseField(ABC):
-    def __init__(self, label, enabled=True, validations=None,help_info=None):
+    def __init__(self, label, order, section=None, enabled=True, validations=None,help_info=None):
         self.label = label
         self.enabled = enabled
         self.validations = validations or []
         self.help_info = help_info
+        self.order = order
+        self.section = section
         self.validate_field()
 
     @abstractmethod

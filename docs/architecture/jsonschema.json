@@ -1,0 +1,67 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "name": {"type": "string"},
+      "version": {"type": "integer"},
+      "description": {"type": "string"},
+      "default_lang_code": {"type": "string"},
+      "pages": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "dependencies": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "order": {"type": "integer"},
+            "fields": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {"type": "string"},
+                  "order": {"type": "integer"},
+                  "section": {"type": "string"},
+                  "enabled": {"type": "boolean"},
+                  "validations": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "validator": {"type": "string"},
+                        "arguments": {"type": "array"}
+                      },
+                      "required": ["validator"]
+                    }
+                  },
+                  "help_info": {"type": "string"},
+                  "options": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "label": {"type": "string"},
+                        "value": {"type": "string"},
+                        "enables": {"type": "string"}
+                      },
+                      "required": ["label", "value"]
+                    }
+                  }
+                },
+                "required": ["label", "order", "enabled", "validations"],
+                "oneOf": [
+                  {"required": ["label", "order", "enabled", "validations"]},
+                  {"required": ["label", "order", "enabled", "validations", "options"]}
+                ]
+              }
+            }
+          },
+          "required": ["dependencies", "order", "fields"]
+        }
+      }
+    },
+    "required": ["name", "version", "description", "default_lang_code", "pages"]
+  }
+  
