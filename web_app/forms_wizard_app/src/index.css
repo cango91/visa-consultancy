@@ -5,9 +5,44 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #282c34;
+  color:aliceblue;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+main.mt-0 {
+  margin-top: 58px !important;
+}
+
+.button{
+background: hsla(201, 100%, 50%, 0.1);
+border: 1px solid hsl(201, 100%, 50%);
+outline: none;
+font-size: 1.2rem;
+color: #fff;
+font-weight: normal;
+margin-top: 20px;
+cursor: pointer;
+}
+.button:hover {
+background-color: hsla(201, 100%, 50%, 0.3);
+}
+.button:focus {
+background-color: hsla(201, 100%, 50%, 0.5);
+}
+
+.btn-danger:not(.override-customs){
+  background: hsla(354, 70%, 54%, 0.3);
+}
+
+.btn-success:not(.override-customs){
+  background: hsla(152, 69%, 31%, 0.3);
+}
+
+.btn-primary:not(.override-customs){
+  background: hsla(216, 98%, 52%, 0.3);
 }
